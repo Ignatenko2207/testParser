@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oauth="http://www.springframework.org/schema/security/oauth2"
+	xmlns:sec="http://www.springframework.org/schema/security" xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:websocket="http://www.springframework.org/schema/websocket" xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/security/oauth2 http://www.springframework.org/schema/security/spring-security-oauth2-1.0.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
+        http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket.xsd">
+
+
+
+	<!-- This component-scan we need for normal detection @Autowire annotation -->
+	<context:component-scan base-package="com.mywork.finance.controller" />
+	<context:component-scan base-package="com.mywork.finance.settings" />
+	<context:component-scan base-package="com.mywork.finance.utils" />
+	<context:component-scan base-package="com.mywork.finance.service" />
+	<context:component-scan base-package="com.mywork.finance.config" />
+	<context:component-scan base-package="com.mywork.finance.model" />
+	<context:annotation-config />
+	
+	<!-- This tag we need for some task manager (or loop) on pointed method in code -->
+	<task:annotation-driven />
+
+	<!-- This bean we need for uploading file from http client -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- max upload size in bytes -->
+		<property name="maxUploadSize" value="471859200" />
+		<!-- max size of file in memory (in bytes) -->
+		<property name="maxInMemorySize" value="471859200" />
+	</bean>
+
+	<!--<mvc:annotation-driven>-->
+		<!--<mvc:message-converters>-->
+			<!--&lt;!&ndash; Use the HibernateAware mapper instead of the default &ndash;&gt;-->
+			<!--<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">-->
+				<!--<property name="objectMapper">-->
+					<!--<bean HERE MUST BE CLASS AS SOME OBJECT MAPPER" />-->
+				<!--</property>-->
+			<!--</bean>-->
+		<!--</mvc:message-converters>-->
+	<!--</mvc:annotation-driven>-->
+	<!-- CONTROLLERS -->
+
+
+	<bean id="csvParserController" class="com.mpsdevelopment.finance.controller.CsvParserController" />
+	
+	<!-- This tag we need for @RequestMapping in classes -->
+	<mvc:annotation-driven />
+
+	<bean id="swaggerConfig" class="com.mywork.finance.config.SwaggerConfig" />
+	<bean id="mvcConfig" class="com.mywork.finance.config.MvcConfig" />
+
+	<task:executor id="executor" pool-size="5" />
+	<task:scheduler id="scheduler" pool-size="10" />
+
+</beans>

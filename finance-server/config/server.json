@@ -1,0 +1,17 @@
+{
+	"host": "localhost",
+	"port": 8099,
+	"mainUrl":"http://localhost/",
+	"useSSL": false,
+	"keyStorePassword" : "123456",
+	"keyStoreLocation" : "keys/keystore.jks",
+	"sslPort" : 7781,
+	"tempDirectory": "data/tmp/webapp",
+	"cookieHost": "",
+	"cookieMaxAge": 86400,
+	"useElasticsearchProperties": false,
+	"elasticsearchHost": "localhost",
+	"elasticsearchPort": "9300",
+	"elasticsearchCluster": "financeserver-cluster",
+	"elasticsearchIndex": "finance-server"
+}
