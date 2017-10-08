@@ -2,21 +2,174 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
- 
-	<parent>
-		<groupId>com.mpsdevelopment.finance</groupId>
-		<artifactId>parent</artifactId>
-		<version>0.1-SNAPSHOT</version>
-		<relativePath>..</relativePath>
-	</parent>
 
+	<groupId>com.mywork.finance</groupId>
+	<version>0.1-SNAPSHOT</version>
 	<artifactId>finance-server</artifactId>
 	<packaging>jar</packaging>
 	<name>FinanceServer</name>
 
 	<properties>
+		<output.directory>../build</output.directory>
+
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<jdk.version>1.8</jdk.version>
+        <product.version>0.1-SNAPSHOT</product.version>
+        <lib.property>lib</lib.property>
+        <our.lib.groupIds.property>com.mpsdevelopment</our.lib.groupIds.property>
+        <output.directory>../build</output.directory>
+
+		<surefire.plugin.version>2.18.1</surefire.plugin.version>
+        <frontend.maven.plugin.version>1.4</frontend.maven.plugin.version>
+        <node.version>v8.2.1</node.version>
+        <npm.version>5.3.0</npm.version>
+        <assembly.plugin.version>3.0.0</assembly.plugin.version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<jdk.version>1.8</jdk.version>
+		<!-- <jre.version>1.8.0.74</jre.version> -->
+
+		<maven.source.plugin.version>2.4</maven.source.plugin.version>
+		<maven.javadoc.plugin.version>2.10.3</maven.javadoc.plugin.version>
+		<maven.antrun.plugin.version>1.8</maven.antrun.plugin.version>
+		<maven.resources.plugin.version>2.7</maven.resources.plugin.version>
+		<exec.maven.plugin.version>1.4.0</exec.maven.plugin.version>
+		<assemply.plugin.version>2.5.5</assemply.plugin.version>
+		<jar.plugin.version>2.6</jar.plugin.version>
+		<dependency.plugin.version>2.10</dependency.plugin.version>
+		<surefire.plugin.version>2.18.1</surefire.plugin.version>
+		<compiler.plugin.version>3.3</compiler.plugin.version>
+		<replacer.plugin.version>1.5.2</replacer.plugin.version>
+		<excelsiorjet.plugin.version>0.6.0</excelsiorjet.plugin.version>
+		<frontend.maven.plugin.version>1.4</frontend.maven.plugin.version>
+		<assembly.plugin.version>2.5.5</assembly.plugin.version>
+
+		<node.version>v6.10.0</node.version>
+		<npm.version>4.3.0</npm.version>
+
+		<commons.io.version>2.5</commons.io.version>
+		<commons.collection.version>3.2.2</commons.collection.version>
+		<commons.lang3.version>3.4</commons.lang3.version>
+		<commons.exec.version>1.1</commons.exec.version>
+		<commons.collections.version>4.1</commons.collections.version>
+		<commons.codec.version>1.7</commons.codec.version>
+		<commons.fileupload.version>1.3.1</commons.fileupload.version>
+
+		<jinput.version>2.0.5</jinput.version>
+		<lwjgl.version>2.9.3</lwjgl.version>
+		<recast.version>1.0.1</recast.version>
+		<jme.version>3.0.10</jme.version>
+
+		<lombok.version>1.16.16</lombok.version>
+		<el.version>2.2.4</el.version>
+		
+		<!--
+		<hibernate.version>5.2.9.Final</hibernate.version>
+		<hibernate.search.version>5.8.0.Beta1</hibernate.search.version>
+		<hibernate.validator.version>5.4.0.Final</hibernate.validator.version>
+		<hibernate.ogm.version>5.1.0.Final</hibernate.ogm.version>
+		<hikari.version>2.6.0</hikari.version>
+		<fongo.version>2.0.6</fongo.version>
+		<jbossjta.version>4.16.6.Final</jbossjta.version>
+		<h2.version>1.4.194</h2.version>
+		<postgresql.version>42.0.0</postgresql.version>
+		-->
+		<junit.version>4.12</junit.version>
+		<mbassador.version>1.2.4</mbassador.version>
+		<!-- <jetty.version>9.4.2.v20170220</jetty.version> -->
+		<jetty.version>9.3.13.v20161014</jetty.version>
+		<spring.version>4.3.7.RELEASE</spring.version>
+		<!--
+		<springsecurity.version>4.2.2.RELEASE</springsecurity.version>
+		-->
+		<plasticine.version>0.8-SNAPSHOT</plasticine.version>
+		
+		<spring.boot.version>1.5.2.RELEASE</spring.boot.version>
+		<swagger.version>2.6.1</swagger.version>
+		<gson.version>2.3.1</gson.version>
+		
+		<jackson.version>2.8.7</jackson.version>
+		<servlet.version>3.1.0</servlet.version>
+		<firebase.version>2.0.0</firebase.version>
+		<jwt.version>3.1.0</jwt.version>
+		<mapsforge.version>0.5.0</mapsforge.version>
+		<jexcelapi.version>2.6.12</jexcelapi.version>
+		<pdfbox.version>1.8.1</pdfbox.version>
+		<httpclient.version>3.1</httpclient.version>
+		<httpcomponents.core.version>4.4.6</httpcomponents.core.version>
+		<httpcomponents.client.version>4.5.3</httpcomponents.client.version>
+		<sl4j.version>1.7.12</sl4j.version>
+		<logback.version>1.1.3</logback.version>
+		
+		<javax.websocket>1.1</javax.websocket>
+		<mockito.version>2.7.13</mockito.version>
+		<springockito.version>1.0.9</springockito.version>
+		<projectreactor.version>2.0.2.RELEASE</projectreactor.version>
+		<jgroups.version>3.2.1.Final</jgroups.version>
+		<vertx.version>3.1.0</vertx.version>
+		<ini4j.version>0.5.2</ini4j.version>
+		<jsoup.version>1.7.3</jsoup.version>
+		<google.collections.version>1.0</google.collections.version>
+		<graphhopper.version>0.6.0</graphhopper.version>
+		<goebl.version>1.0.0</goebl.version>
+		<ztexec.version>1.8</ztexec.version>
+		<jprocesses.version>1.6.1</jprocesses.version>
+		<docker.junitrule.version>1.1.0</docker.junitrule.version>
+		<docker.composerule.version>0.31.1</docker.composerule.version>
+		<opencsv.version>3.9</opencsv.version>
+		<poi.version>3.11-beta2</poi.version>
+		<mail.version>1.4.7</mail.version>
+		<apache.commons.net.version>3.6</apache.commons.net.version>
+		
+		<!--
+		<maven.source.plugin.version>2.4</maven.source.plugin.version>
+		<maven.javadoc.plugin.version>2.10.3</maven.javadoc.plugin.version>
+		<maven.antrun.plugin.version>1.8</maven.antrun.plugin.version>
+		<maven.resources.plugin.version>2.7</maven.resources.plugin.version>
+		<exec.maven.plugin.version>1.4.0</exec.maven.plugin.version>
+		<jar.plugin.version>2.6</jar.plugin.version>
+		<dependency.plugin.version>2.10</dependency.plugin.version>
+		<surefire.plugin.version>2.18.1</surefire.plugin.version>
+		<compiler.plugin.version>3.3</compiler.plugin.version>
+		<replacer.plugin.version>1.5.2</replacer.plugin.version>
+		<frontend.maven.plugin.version>1.4</frontend.maven.plugin.version>
+
+		<commons.io.version>2.5</commons.io.version>
+		<commons.collection.version>3.2.2</commons.collection.version>
+		<commons.lang3.version>3.4</commons.lang3.version>
+		<commons.exec.version>1.1</commons.exec.version>
+		<commons.collections.version>4.1</commons.collections.version>
+		<commons.codec.version>1.7</commons.codec.version>
+		<commons.fileupload.version>1.3.1</commons.fileupload.version>
+
+        <jackson.datatype.version>2.8.7</jackson.datatype.version>
+        <jwt.version>3.1.0</jwt.version>
+        <apache.commons.version>3.6</apache.commons.version>
+        <apache.commons-fileupload.version>1.3.3</apache.commons-fileupload.version>
+
+        <lombok.version>1.16.18</lombok.version>
+        <junit.version>4.12</junit.version>
+        <spring.version>4.3.7.RELEASE</spring.version>
+        <spring.boot.version>1.5.2.RELEASE</spring.boot.version>
+        <swagger.version>2.4.0</swagger.version>
+        <io.springfox.version>2.6.1</io.springfox.version>
+        <gson.version>2.3.1</gson.version>
+        <jackson.version>2.8.7</jackson.version>
+        <servlet.version>3.1.0</servlet.version>
+        <logback.version>1.1.3</logback.version>
+		<jetty.version>9.3.13.v20161014</jetty.version>
+		<jwt.version>3.1.0</jwt.version>
+
+        <mockito.version>2.8.47</mockito.version>
+        <springockito.version>1.0.9</springockito.version>
+        
+        <opencsv.version>3.9</opencsv.version>
+        -->
+    </properties>
   
   <dependencies>
 		<dependency>
